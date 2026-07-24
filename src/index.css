@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #FFFDF9;
+    --text-primary: #104C64;
+    --focus-purple: #92278F;
+    
+    /* Rainbow Brand Colors */
+    --color-pink: #E54B88;
+    --color-blue: #49A2D2;
+    --color-green: #8CC63F;
+    --color-yellow: #F9A825;
+    --color-teal: #104C64;
+    --color-purple: #92278F;
+  }
+
+  /* Custom Focus Ring for Keyboard Navigation (Tab) */
+  *:focus-visible {
+    outline: 4px solid #92278F !important;
+    outline-offset: 3px !important;
+    border-radius: 16px !important;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Nunito', 'Quicksand', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Modo Calma (Calm Mode) - Ultra sensory friendly desaturated pastel style */
+.mode-calma {
+  background-color: #FAF8F5 !important;
+  filter: saturate(0.65) contrast(0.95);
+}
+
+.mode-calma * {
+  box-shadow: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.mode-calma .btn-pink {
+  background-color: #D882A7 !important;
+  color: #2D1824 !important;
+  border-color: #B56589 !important;
+}
+
+.mode-calma .btn-blue {
+  background-color: #8EBEDC !important;
+  color: #122B3B !important;
+  border-color: #6A9DBF !important;
+}
+
+.mode-calma .btn-green {
+  background-color: #9EC079 !important;
+  color: #1B2C10 !important;
+  border-color: #7B9E56 !important;
+}
+
+.mode-calma .btn-yellow {
+  background-color: #E2C07D !important;
+  color: #38290B !important;
+  border-color: #C19E59 !important;
+}
+
+.mode-calma .btn-teal {
+  background-color: #3E6E82 !important;
+  color: #FFFFFF !important;
+}
+
+/* Dyslexia / High Readability Font Override */
+.font-dyslexic {
+  font-family: 'OpenDyslexic', 'Quicksand', 'Arial', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.75 !important;
+}
+
+/* Font Size Scaling Classes */
+.font-scale-sm {
+  font-size: 0.9em;
+}
+.font-scale-base {
+  font-size: 1em;
+}
+.font-scale-lg {
+  font-size: 1.15em;
+}
+.font-scale-xl {
+  font-size: 1.3em;
+}
+
+/* Reading Mask / Guía de lectura */
+.reading-guide {
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  width: 100vw;
+  height: 48px;
+  background-color: rgba(250, 204, 21, 0.22);
+  border-top: 2px solid rgba(146, 39, 143, 0.4);
+  border-bottom: 2px solid rgba(146, 39, 143, 0.4);
+  z-index: 9999;
+  transform: translateY(-50%);
+  transition: top 0.08s ease-out;
+}
+

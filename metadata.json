@@ -1,0 +1,6 @@
+{
+  "name": "NeuroVisual",
+  "description": "Página de bio-enlaces accesible e inclusiva para NeuroVisual con herramientas para la neurodiversidad y TEA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
