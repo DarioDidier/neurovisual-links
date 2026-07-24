@@ -1,6 +1,7 @@
 import React from 'react';
 import { Puzzle, Sparkles, Heart } from 'lucide-react';
-import logoImg from '../assets/images/neurovisual_logo_1784883657343.jpg';
+
+const LOGO_URL = "https://i.postimg.cc/3xtB6rDz/logo-neurovisual.png";
 
 interface Props {
   onSpeak?: (text: string) => void;
@@ -35,7 +36,7 @@ export const HeaderProfile: React.FC<Props> = ({ onSpeak, calmMode }) => {
 
         <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-[#FFFDF9] shadow-lg border-4 border-[#104C64] overflow-hidden flex items-center justify-center">
           <img
-            src={logoImg}
+            src={LOGO_URL}
             alt="Isotipo de NeuroVisual: Cerebro de rompecabezas multicolor amigable"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover rounded-full transform transition-transform duration-300 group-hover:scale-105"
