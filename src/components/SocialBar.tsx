@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Youtube, Pin, MessageCircle, Mail } from 'lucide-react';
+import { Instagram, Youtube, MessageCircle, Mail } from 'lucide-react';
 import { SOCIAL_LINKS } from '../data/links';
 import { SocialItem } from '../types';
 
@@ -13,12 +13,8 @@ export const SocialBar: React.FC<Props> = ({ onSpeak, calmMode }) => {
     switch (iconName) {
       case 'Instagram':
         return <Instagram className="w-5 h-5" />;
-      case 'Facebook':
-        return <Facebook className="w-5 h-5" />;
       case 'Youtube':
         return <Youtube className="w-5 h-5" />;
-      case 'Pin':
-        return <Pin className="w-5 h-5" />;
       case 'MessageCircle':
         return <MessageCircle className="w-5 h-5" />;
       case 'Mail':

@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Globe, 
   Instagram, 
-  Facebook, 
   BookOpen, 
   MessageCircle, 
   Youtube, 
@@ -28,8 +27,6 @@ export const LinkButton: React.FC<Props> = ({ link, onSpeak, calmMode, onPreview
         return <Globe className="w-6 h-6" />;
       case 'Instagram':
         return <Instagram className="w-6 h-6" />;
-      case 'Facebook':
-        return <Facebook className="w-6 h-6" />;
       case 'BookOpen':
         return <BookOpen className="w-6 h-6" />;
       case 'MessageCircle':
@@ -134,8 +131,8 @@ export const LinkButton: React.FC<Props> = ({ link, onSpeak, calmMode, onPreview
   const styleObj = getColorStyles(link.color);
 
   return (
-    <div className="w-full my-2.5 relative group">
-      {/* Main Link Card Button with rounded-[32px] per Natural Tones theme */}
+    <div className="w-full my-2 relative group">
+      {/* Main Link Card Button */}
       <a
         href={link.url}
         target={link.url === '#' ? '_self' : '_blank'}
@@ -149,36 +146,36 @@ export const LinkButton: React.FC<Props> = ({ link, onSpeak, calmMode, onPreview
         onMouseEnter={handleMouseEnterOrFocus}
         onFocus={handleMouseEnterOrFocus}
         aria-label={`${link.title}: ${link.subtitle}.${link.url === '#' ? '' : ' Se abre en una ventana nueva.'}`}
-        className={`w-full min-h-[76px] sm:min-h-[82px] p-3.5 sm:p-4 rounded-[32px] shadow-xs flex items-center justify-between gap-3 transition-all duration-200 transform focus:outline-none ${
+        className={`w-full min-h-[72px] sm:min-h-[82px] p-3 sm:p-4 rounded-2xl sm:rounded-[32px] shadow-xs flex items-center justify-between gap-2.5 sm:gap-3 transition-all duration-200 transform focus:outline-none touch-manipulation active:scale-[0.98] ${
           calmMode ? '' : 'hover:-translate-y-0.5'
         } ${styleObj.card}`}
       >
         {/* Left Badge / Icon Container */}
-        <div className="flex items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
-          <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-xs font-bold transition-transform group-hover:scale-105 ${styleObj.iconBg}`}>
+        <div className="flex items-center gap-2.5 xs:gap-3.5 sm:gap-4 flex-1 min-w-0">
+          <div className={`w-11 h-11 xs:w-12 xs:h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 shadow-xs font-bold transition-transform group-hover:scale-105 ${styleObj.iconBg}`}>
             {getIcon(link.iconName)}
           </div>
 
           {/* Text Content */}
-          <div className="flex flex-col text-left flex-1 min-w-0 pr-1">
+          <div className="flex flex-col text-left flex-1 min-w-0 pr-0.5">
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="font-bold text-base sm:text-lg leading-tight tracking-tight text-[#104C64]">
+              <span className="font-bold text-sm xs:text-base sm:text-lg leading-tight tracking-tight text-[#104C64]">
                 {link.title}
               </span>
               {link.badgeText && (
-                <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#104C64]/10 text-[#104C64] border border-[#104C64]/15 shrink-0">
+                <span className="text-[9px] xs:text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[#104C64]/10 text-[#104C64] border border-[#104C64]/15 shrink-0">
                   {link.badgeText}
                 </span>
               )}
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-[#104C64]/75 leading-snug mt-0.5 line-clamp-2">
+            <span className="text-[11px] xs:text-xs sm:text-sm font-semibold text-[#104C64]/75 leading-snug mt-0.5 line-clamp-2">
               {link.subtitle}
             </span>
           </div>
         </div>
 
         {/* Action Icon / Chevron */}
-        <div className="flex items-center gap-1.5 shrink-0 pl-1">
+        <div className="flex items-center gap-1.5 shrink-0 pl-0.5">
           {link.modalPreviewType && onPreviewClick && (
             <button
               type="button"
@@ -197,19 +194,19 @@ export const LinkButton: React.FC<Props> = ({ link, onSpeak, calmMode, onPreview
             </button>
           )}
 
-          <div className="w-8 h-8 rounded-xl bg-[#104C64]/10 flex items-center justify-center text-[#104C64] group-hover:translate-x-1 transition-transform">
-            <ChevronRight className="w-5 h-5" />
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#104C64]/10 flex items-center justify-center text-[#104C64] group-hover:translate-x-1 transition-transform shrink-0">
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
         </div>
       </a>
 
       {/* Mobile-friendly secondary preview button if available */}
       {link.modalPreviewType && onPreviewClick && (
-        <div className="sm:hidden flex justify-end -mt-1 mr-3">
+        <div className="sm:hidden flex justify-end -mt-1 mr-2">
           <button
             type="button"
             onClick={() => onPreviewClick(link)}
-            className="text-[11px] font-black text-[#104C64] bg-white/90 hover:bg-white px-2.5 py-1 rounded-full border border-[#104C64]/20 shadow-xs flex items-center gap-1"
+            className="text-[10px] xs:text-[11px] font-black text-[#104C64] bg-white/95 hover:bg-white px-3 py-1 rounded-full border border-[#104C64]/20 shadow-xs flex items-center gap-1 touch-manipulation active:scale-95"
           >
             <Sparkles className="w-3 h-3 text-[#E54B88]" />
             <span>Ver Muestra Interactiva</span>

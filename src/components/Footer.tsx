@@ -38,14 +38,14 @@ export const Footer: React.FC<Props> = ({ onSpeak, calmMode }) => {
             <Puzzle className="w-6 h-6 fill-current text-[#8CC63F]" />
           </div>
 
-          {/* Core Inspirational Quote requested by specification */}
-          <p className="text-base sm:text-lg font-bold leading-relaxed max-w-xs sm:max-w-sm text-white px-2">
+          {/* Core Inspirational Quote */}
+          <p className="text-sm sm:text-lg font-bold leading-relaxed max-w-xs sm:max-w-sm text-white px-2">
             "{quoteText}"
           </p>
 
           {/* Secondary Accessibility & Mission Statement */}
-          <div className="flex items-center justify-center gap-2 text-xs text-[#8CC63F] font-semibold bg-[#0C3B4E] px-3.5 py-1.5 rounded-full border border-white/10">
-            <ShieldCheck className="w-4 h-4 text-[#8CC63F]" />
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#8CC63F] font-semibold bg-[#0C3B4E] px-3 py-1.5 rounded-full border border-white/10 max-w-full text-center">
+            <ShieldCheck className="w-4 h-4 text-[#8CC63F] shrink-0" />
             <span>Diseño inclusivo optimizado para TEA, TDAH y Dislexia</span>
           </div>
 
@@ -54,7 +54,7 @@ export const Footer: React.FC<Props> = ({ onSpeak, calmMode }) => {
             onClick={scrollToTop}
             aria-label="Volver arriba al inicio de la página"
             title="Volver arriba"
-            className="mt-2 px-4 py-2 rounded-2xl bg-[#0C3B4E] hover:bg-white/10 text-white text-xs font-black border border-white/20 flex items-center gap-1.5 transition-colors focus:outline-none"
+            className="mt-2 px-4 py-2.5 rounded-2xl bg-[#0C3B4E] hover:bg-white/10 active:scale-95 touch-manipulation text-white text-xs font-black border border-white/20 flex items-center gap-1.5 transition-all focus:outline-none min-h-[44px]"
           >
             <ArrowUp className="w-4 h-4 text-[#8CC63F]" />
             <span>Volver arriba</span>

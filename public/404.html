@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeuroVisual | Bio-Enlaces</title>
     <script>
-      // Redirect to repository base if route is missing
-      var pathSegments = window.location.pathname.split('/').filter(Boolean);
-      var repoBase = pathSegments.length > 0 ? '/' + pathSegments[0] + '/' : '/';
-      if (window.location.pathname !== repoBase) {
-        window.location.replace(repoBase);
+      // SPA fallback for GitHub Pages
+      var pathname = window.location.pathname;
+      var isAsset = /\.(js|css|jpg|jpeg|png|gif|svg|ico|json|woff|woff2)$/i.test(pathname);
+      if (!isAsset) {
+        var pathSegments = pathname.split('/').filter(Boolean);
+        var repoBase = (pathSegments.length > 0 && !pathname.includes('.github.io'))
+          ? '/' + pathSegments[0] + '/'
+          : '/';
+        if (pathname !== repoBase) {
+          window.location.replace(repoBase);
+        }
       }
     </script>
   </head>

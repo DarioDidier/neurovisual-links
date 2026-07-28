@@ -4,6 +4,7 @@ import { HeaderProfile } from './components/HeaderProfile';
 import { SocialBar } from './components/SocialBar';
 import { LinkButton } from './components/LinkButton';
 import { ResourceModal } from './components/ResourceModal';
+import { RecommendedResources } from './components/RecommendedResources';
 import { Footer } from './components/Footer';
 import { ReadingGuideOverlay } from './components/ReadingGuideOverlay';
 import { AccessibilityState, LinkItem } from './types';
@@ -63,7 +64,7 @@ export default function App() {
         setState={setAccessibilityState} 
       />
 
-      {/* Main Content Card Container (Mobile-first centered column max-w-md / max-w-lg) */}
+      {/* Main Content Card Container (Mobile-first centered column) */}
       <main className="flex-1 max-w-md sm:max-w-lg mx-auto w-full px-3 sm:px-4 py-2 flex flex-col items-center">
         {/* Profile Header */}
         <HeaderProfile 
@@ -82,18 +83,18 @@ export default function App() {
           <div className="w-full my-2 p-2.5 rounded-2xl bg-[#104C64]/5 border border-[#104C64]/15 flex items-center justify-between text-xs font-bold text-[#104C64] animate-fadeIn">
             <div className="flex items-center gap-1.5 flex-wrap">
               <ShieldCheck className="w-4 h-4 text-[#8CC63F] shrink-0" />
-              <span>Modo Adaptado Activo:</span>
-              {accessibilityState.calmMode && <span className="bg-[#8CC63F]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px]">Calma</span>}
-              {accessibilityState.textToSpeech && <span className="bg-[#E54B88]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px]">Lectura Voz</span>}
-              {accessibilityState.dyslexiaFont && <span className="bg-[#49A2D2]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px]">Lectura Fácil</span>}
-              {accessibilityState.fontScale !== 'base' && <span className="bg-[#F9A825]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px]">Texto {accessibilityState.fontScale.toUpperCase()}</span>}
+              <span className="shrink-0">Modo Adaptado:</span>
+              {accessibilityState.calmMode && <span className="bg-[#8CC63F]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px] shrink-0">Calma</span>}
+              {accessibilityState.textToSpeech && <span className="bg-[#E54B88]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px] shrink-0">Lectura Voz</span>}
+              {accessibilityState.dyslexiaFont && <span className="bg-[#49A2D2]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px] shrink-0">Lectura Fácil</span>}
+              {accessibilityState.fontScale !== 'base' && <span className="bg-[#F9A825]/20 text-[#104C64] px-2 py-0.5 rounded-full text-[10px] shrink-0">Texto {accessibilityState.fontScale.toUpperCase()}</span>}
             </div>
           </div>
         )}
 
         {/* Category Filter Pills (for quick cognitive organization) */}
         <div 
-          className="w-full my-3 flex items-center justify-center gap-1.5 overflow-x-auto pb-1"
+          className="w-full my-2.5 flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto no-scrollbar py-1 px-0.5 touch-pan-x"
           role="tablist"
           aria-label="Filtrar enlaces por categoría"
         >
@@ -111,7 +112,7 @@ export default function App() {
               }}
               role="tab"
               aria-selected={activeTab === tab.id}
-              className={`px-3 py-1.5 rounded-full text-xs font-extrabold transition-all border whitespace-nowrap shrink-0 ${
+              className={`px-3.5 py-2 rounded-full text-xs font-extrabold transition-all border whitespace-nowrap shrink-0 touch-manipulation active:scale-95 min-h-[38px] flex items-center justify-center ${
                 activeTab === tab.id
                   ? 'bg-[#104C64] text-white border-[#104C64] shadow-xs'
                   : 'bg-white text-[#104C64] hover:bg-gray-100 border-[#104C64]/20'
@@ -135,6 +136,14 @@ export default function App() {
             </div>
           ))}
         </div>
+
+        {/* Recommended Resources Section */}
+        {(activeTab === 'todos' || activeTab === 'recursos') && (
+          <RecommendedResources 
+            onSpeak={handleSpeak} 
+            calmMode={accessibilityState.calmMode} 
+          />
+        )}
 
         {/* Informational Guidance Card for Parents and Educators */}
         <div className="w-full my-6 p-4 rounded-3xl bg-[#49A2D2]/10 border-2 border-[#49A2D2]/30 text-[#104C64] space-y-2">

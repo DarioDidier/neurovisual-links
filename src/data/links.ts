@@ -24,16 +24,6 @@ export const MAIN_LINKS: LinkItem[] = [
     modalPreviewType: 'community'
   },
   {
-    id: 'link-facebook',
-    title: 'Comunidad en Facebook',
-    subtitle: 'Conecta con otras familias y profesionales de la neurodiversidad',
-    url: '#',
-    color: 'pink',
-    iconName: 'Facebook',
-    category: 'redes',
-    modalPreviewType: 'community'
-  },
-  {
     id: 'link-catalog',
     title: 'Catálogo de Agendas y Pictogramas',
     subtitle: 'Organizadores de rutinas diarias, llaveros de comunicación y anticipadores',
@@ -65,22 +55,6 @@ export const SOCIAL_LINKS: SocialItem[] = [
     iconName: 'Instagram',
     color: '#E54B88',
     ariaLabel: 'Visitar perfil de NeuroVisual en Instagram (se abre en ventana externa)'
-  },
-  {
-    id: 'social-facebook',
-    name: 'Facebook',
-    url: '#',
-    iconName: 'Facebook',
-    color: '#49A2D2',
-    ariaLabel: 'Página de NeuroVisual en Facebook'
-  },
-  {
-    id: 'social-pinterest',
-    name: 'Pinterest',
-    url: 'https://pinterest.com/neurovisual',
-    iconName: 'Pin',
-    color: '#F9A825',
-    ariaLabel: 'Visitar tableros de NeuroVisual en Pinterest (se abre en ventana externa)'
   },
   {
     id: 'social-email',

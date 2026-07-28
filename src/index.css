@@ -26,7 +26,19 @@
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: 'Nunito', 'Quicksand', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
   }
+}
+
+/* Hide scrollbars for clean horizontal sliding on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Modo Calma (Calm Mode) - Ultra sensory friendly desaturated pastel style */
