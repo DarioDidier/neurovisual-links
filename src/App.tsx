@@ -5,6 +5,7 @@ import { SocialBar } from './components/SocialBar';
 import { LinkButton } from './components/LinkButton';
 import { ResourceModal } from './components/ResourceModal';
 import { RecommendedResources } from './components/RecommendedResources';
+import { YouTubePodcast } from './components/YouTubePodcast';
 import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { Footer } from './components/Footer';
 import { ReadingGuideOverlay } from './components/ReadingGuideOverlay';
@@ -141,6 +142,14 @@ export default function App() {
         {/* Recommended Resources Section */}
         {(activeTab === 'todos' || activeTab === 'recursos') && (
           <RecommendedResources 
+            onSpeak={handleSpeak} 
+            calmMode={accessibilityState.calmMode} 
+          />
+        )}
+
+        {/* YouTube Podcast Section */}
+        {(activeTab === 'todos' || activeTab === 'recursos' || activeTab === 'contacto') && (
+          <YouTubePodcast 
             onSpeak={handleSpeak} 
             calmMode={accessibilityState.calmMode} 
           />
