@@ -5,6 +5,7 @@ import { SocialBar } from './components/SocialBar';
 import { LinkButton } from './components/LinkButton';
 import { ResourceModal } from './components/ResourceModal';
 import { RecommendedResources } from './components/RecommendedResources';
+import { WhatsAppCommunity } from './components/WhatsAppCommunity';
 import { Footer } from './components/Footer';
 import { ReadingGuideOverlay } from './components/ReadingGuideOverlay';
 import { AccessibilityState, LinkItem } from './types';
@@ -140,6 +141,14 @@ export default function App() {
         {/* Recommended Resources Section */}
         {(activeTab === 'todos' || activeTab === 'recursos') && (
           <RecommendedResources 
+            onSpeak={handleSpeak} 
+            calmMode={accessibilityState.calmMode} 
+          />
+        )}
+
+        {/* WhatsApp Community Section */}
+        {(activeTab === 'todos' || activeTab === 'recursos' || activeTab === 'contacto') && (
+          <WhatsAppCommunity 
             onSpeak={handleSpeak} 
             calmMode={accessibilityState.calmMode} 
           />
